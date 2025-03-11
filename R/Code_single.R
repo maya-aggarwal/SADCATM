@@ -16,7 +16,7 @@ Code_single = function(data, text = "word", more2na = T){
   }
   res = dplyr::select(res, -contains("_dict"))
   res = cbind(res,res2)
-  Dicts_v3pre = unique(Dictionaries$word)
+  Dicts_v3pre = unique(SADCAT::Dictionaries$word)
   res$NONE = as.numeric(!(as.matrix(res[[text]]) %in% as.matrix(Dicts_v3pre)))
   res$NONE2 = ifelse(stringr::str_count(res[[text]], "\\S+") > 2,NA,as.numeric(!(res[[text]]) %in% as.matrix(Dicts_v3pre)))
   if(more2na == F){
