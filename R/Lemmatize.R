@@ -8,7 +8,7 @@
 
 
 Lemmatize = function(word, print =T, debug = F){
-  the_path = Sys.getenv("TTHOME")
+  the_path <- Sys.getenv("TTHOME")
   if (the_path == "") {
     the_path = "C:\\treetagger"
   }
