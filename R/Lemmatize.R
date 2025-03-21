@@ -8,12 +8,16 @@
 
 
 Lemmatize = function(word, print =T, debug = F){
+  the_path = Sys.getenv("TTHOME")
+  if (the_path == "") {
+    the_path = "C:\\treetagger"
+  }
   if (print == T){
     print(word)}
   if(!is.na(word)){
     if(word == ""){
       return("")}}
-    lemmax = koRpus::treetag(as.character(word), treetagger="manual", format="obj", debug = debug, TT.tknz=T, lang="en", TT.options=list(path="/Users/mayaaggarwal/Desktop/CodeFiles/Utilities/TreeTagger", preset="en"))
+    lemmax = koRpus::treetag(as.character(word), treetagger="manual", format="obj", debug = debug, TT.tknz=T, lang="en", TT.options=list(path=the_path, preset="en"))
   if(lemmax@tokens[["lemma"]] == "<unknown>"){
     if (print == T){
     print(lemmax@tokens[["token"]])}
